@@ -7,7 +7,7 @@
 
 import UIKit
 import SDWebImage
-import Lottie
+
 
 protocol CollectionCellDelegate: AnyObject {
     func didTapAddToCart(for product: ProductEntity, quantity: Int)

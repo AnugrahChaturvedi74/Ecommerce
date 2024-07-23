@@ -272,8 +272,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qs-SO-vhA">
-                                                <rect key="frame" x="318" y="38" width="0.0" height="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qs-SO-vhA">
+                                                <rect key="frame" x="302.66666666666669" y="38" width="15.333333333333314" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="TOw-r0-TmK"/>
                                                 </constraints>

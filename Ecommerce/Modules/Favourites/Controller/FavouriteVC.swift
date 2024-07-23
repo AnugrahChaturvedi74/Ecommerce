@@ -61,7 +61,7 @@ extension FavouriteVC: UITableViewDataSource, UITableViewDelegate {
         return 140
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Handle selection if needed
+      
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

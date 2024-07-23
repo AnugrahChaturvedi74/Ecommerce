@@ -12,8 +12,7 @@ class LoginVC: UIViewController {
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var bgImage: UIImageView!
     @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var subTitleLbl: UILabel!
-    @IBOutlet weak var titleLbl: UILabel!
+    
     let loginVm = LoginVM()
     var currentImageIndex = 0
     var timer: Timer?
@@ -37,8 +36,6 @@ class LoginVC: UIViewController {
     //MARK: General Function
     func updateImageAndLabels(index: Int) {
         bgImage.image = UIImage(named: loginVm.onboardingScreen()[index].image)
-        titleLbl.text = loginVm.onboardingScreen()[index].title
-        subTitleLbl.text = loginVm.onboardingScreen()[index].subTitle
     }
     
     @objc func changeImage() {

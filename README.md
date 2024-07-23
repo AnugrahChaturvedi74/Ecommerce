@@ -15,16 +15,17 @@ Ecommerce App is a simple shopping application built using Swift and CoreData
 ![Home Screen](./Ecommerce/Resources/Screenshots/00.png)
 
 ### Product Details
-![Product Details](./images/product_details.png)
+![Product Details](./Ecommerce/Resources/Screenshots/01.png)
+![Product Details](./Ecommerce/Resources/Screenshots/02.png)
 
 ### Cart Screen
-![Cart Screen](./images/cart_screen.png)
+![Cart Screen](./Ecommerce/Resources/Screenshots/03.png)
 
 ### Checkout Process
-![Checkout Process](./images/checkout_process.png)
+![Checkout Process](./Ecommerce/Resources/Screenshots/04.png)
 
-### Order Confirmation
-![Order Confirmation](./images/order_confirmation.png)
+### Favourites
+![Order Confirmation](./Ecommerce/Resources/Screenshots/05.png)
 
 ## Installation
 

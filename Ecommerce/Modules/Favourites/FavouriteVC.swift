@@ -9,21 +9,54 @@ import UIKit
 
 class FavouriteVC: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    var favoriteItems: [FavoriteItem] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        setupTableView()
+        favoriteItems = CoreDataHelper.shared.fetchFavoriteItems()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UINib(nibName: "FavouriteItemCell", bundle: nil), forCellReuseIdentifier: "FavouriteItemCell")
+        tableView.tableFooterView = UIView()
     }
-    */
 
+    @IBAction func didTapBackBtn(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
+
+extension FavouriteVC: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return favoriteItems.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: FavouriteItemCell.identifier, for: indexPath) as? FavouriteItemCell else {
+            return UITableViewCell()
+        }
+        let selectedView = UIView()
+        selectedView.backgroundColor = .clear
+        cell.selectedBackgroundView = selectedView
+        let favoriteItem = favoriteItems[indexPath.row]
+        if let product = favoriteItem.product {
+            cell.configure(with: product)
+        }
+        
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 140
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Handle selection if needed
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+

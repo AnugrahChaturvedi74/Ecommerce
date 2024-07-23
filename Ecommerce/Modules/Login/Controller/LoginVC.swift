@@ -8,22 +8,48 @@
 import UIKit
 
 class LoginVC: UIViewController {
-
+    
+    @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var bgImage: UIImageView!
+    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var subTitleLbl: UILabel!
+    @IBOutlet weak var titleLbl: UILabel!
+    let loginVm = LoginVM()
+    var currentImageIndex = 0
+    var timer: Timer?
     override func viewDidLoad() {
         super.viewDidLoad()
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(changeImage), userInfo: nil, repeats: true)
+        updateImageAndLabels(index: 0)
+        loginBtn.layer.cornerRadius = 10
 
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //MARK: Button Action
+    @IBAction func didTapSignInBtn(_ sender: UIButton) {
+        let storyBoard = UIStoryboard(name: "Dashboard", bundle: nil)
+        let vc: DashboardVC = (storyBoard.instantiateViewController(withIdentifier: "DashboardVC") as? DashboardVC)!
+        navigationController?.pushViewController(vc, animated: true)
     }
-    */
-
+    
+    
+    //MARK: General Function
+    func updateImageAndLabels(index: Int) {
+        bgImage.image = UIImage(named: loginVm.onboardingScreen()[index].image)
+        titleLbl.text = loginVm.onboardingScreen()[index].title
+        subTitleLbl.text = loginVm.onboardingScreen()[index].subTitle
+    }
+    
+    @objc func changeImage() {
+        currentImageIndex += 1
+        if currentImageIndex >= loginVm.onboardingScreen().count {
+            currentImageIndex = 0
+        }
+        updateImageAndLabels(index: currentImageIndex)
+        pageControl.currentPage = currentImageIndex
+    }
+    
 }
+
+

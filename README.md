@@ -1,6 +1,6 @@
 # Ecommerce App
 
-Ecommerce App is a simple shopping application built using Swift and CoreData
+Ecommerce App is a simple shopping application built using Swift and CoreData.
 
 ## Features
 
@@ -8,6 +8,12 @@ Ecommerce App is a simple shopping application built using Swift and CoreData
 - Add products to cart
 - Favorite products
 - Checkout process
+
+## Video
+
+Watch a demo video of the app in action:
+
+[![Ecommerce App Demo](./Ecommerce/Resources/Screenshots/00.png)](./Ecommerce/Resources/screen.mov)
 
 ## Screenshots
 
@@ -25,7 +31,7 @@ Ecommerce App is a simple shopping application built using Swift and CoreData
 ![Checkout Process](./Ecommerce/Resources/Screenshots/04.png)
 
 ### Favourites
-![Order Confirmation](./Ecommerce/Resources/Screenshots/05.png)
+![Favourites](./Ecommerce/Resources/Screenshots/05.png)
 
 ## Installation
 

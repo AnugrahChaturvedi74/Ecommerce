@@ -13,7 +13,7 @@ Ecommerce App is a simple shopping application built using Swift and CoreData.
 
 Watch a demo video of the app in action:
 
-[![Ecommerce App Demo](./Ecommerce/Resources/Screenshots/00.png)](./Ecommerce/Resources/screen.mov)
+[Watch the video](https://drive.google.com/file/d/1Z9skrWwJEU9ueiJuFZ0YKVIWEwVIgDJt/view?usp=sharing)
 
 ## Screenshots
 

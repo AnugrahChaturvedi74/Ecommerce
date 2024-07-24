@@ -43,7 +43,11 @@ class DashboardVC: UIViewController {
         tableView.delegate = self
         tableView.separatorColor = .clear
         tableView.bounces = false
-        tableView.sectionHeaderTopPadding = 0
+        if #available(iOS 15.0, *) {
+            tableView.sectionHeaderTopPadding = 0
+        } else {
+            // Fallback on earlier versions
+        }
         tableView.register(DashboardCell.self, forCellReuseIdentifier: DashboardCell.identifier)
     }
     

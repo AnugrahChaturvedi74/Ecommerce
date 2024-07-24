@@ -30,7 +30,7 @@ class CartVC: UIViewController, PaymentDelegate {
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UINib(nibName: "CartCell", bundle: nil), forCellReuseIdentifier: "CartCell")
+        tableView.register(UINib(nibName: "CartCell", bundle: nil), forCellReuseIdentifier: CartCell.identifier)
         tableView.tableFooterView = UIView()
     }
 
@@ -52,12 +52,23 @@ class CartVC: UIViewController, PaymentDelegate {
         updateFooterView()
     }
 
-    private func removeCartItem(at indexPath: IndexPath) {
-        let cartItem = cartItems[indexPath.row]
+    private func removeCartItem(_ cartItem: CartItem) {
+        guard let indexPath = cartItems.firstIndex(where: { $0 == cartItem }) else {
+            print("Cart item not found in the cartItems array")
+            return
+        }
+        print("Attempting to remove cart item at index \(indexPath)")
+      
         CoreDataHelper.shared.removeFromCart(cartItem: cartItem)
-        cartItems.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .automatic)
-        updateFooterView()
+        cartItems.remove(at: indexPath)
+        DispatchQueue.main.async {
+            print("Updating table view after removing item at index \(indexPath)")
+            self.tableView.performBatchUpdates({
+                self.tableView.deleteRows(at: [IndexPath(row: indexPath, section: 0)], with: .automatic)
+            }, completion: { _ in
+                self.updateFooterView()
+            })
+        }
     }
 
     private func updateFooterView() {
@@ -66,7 +77,7 @@ class CartVC: UIViewController, PaymentDelegate {
         footerView.isHidden = !hasItems
 
         let subtotal = cartItems.reduce(0) { $0 + Double($1.quantity) * ($1.product?.price ?? 0) }
-        let total = subtotal 
+        let total = subtotal
 
         subtotalLbl.text = String(format: "₹%.2f", subtotal)
         totalLbl.text = String(format: "₹%.2f", total)
@@ -76,7 +87,6 @@ class CartVC: UIViewController, PaymentDelegate {
         }
     }
     
-    
     @IBAction func didTapCheckout(_ sender: UIButton) {
         let storyBoard = UIStoryboard(name: "Dashboard", bundle: nil)
         let vc: PaymentVC = (storyBoard.instantiateViewController(withIdentifier: "PaymentVC") as? PaymentVC)!
@@ -85,14 +95,12 @@ class CartVC: UIViewController, PaymentDelegate {
         vc.modalTransitionStyle = .crossDissolve
         self.present(vc, animated: true, completion: nil)
     }
-    
 }
 
 extension CartVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if cartItems.count == 0 {
-           tableView.setEmptyMessage("Your cart is empty!! \nGo shop now")
+        if cartItems.isEmpty {
+            tableView.setEmptyMessage("Your cart is empty!! \nGo shop now")
         } else {
             tableView.restore()
         }
@@ -103,15 +111,16 @@ extension CartVC: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CartCell.identifier, for: indexPath) as? CartCell else {
             return UITableViewCell()
         }
+        
         let cartItem = cartItems[indexPath.row]
         cell.configure(with: cartItem) { [weak self] in
             if cartItem.quantity == 0 {
-                self?.removeCartItem(at: indexPath)
+                self?.removeCartItem(cartItem)
             } else {
                 self?.updateCartItems()
             }
         }
-
+        
         return cell
     }
 

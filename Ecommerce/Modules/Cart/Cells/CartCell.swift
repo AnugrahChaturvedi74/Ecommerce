@@ -42,10 +42,19 @@ class CartCell: UITableViewCell {
     
     func configure(with cartItem: CartItem, updateQuantityCallback: @escaping () -> Void) {
         self.cartItem = cartItem
-        self.updateQuantityCallback = updateQuantityCallback
+        self.updateQuantityCallback = {
+            if cartItem.quantity == 0 {
+                updateQuantityCallback()
+            } else {
+                self.productQuantity.text = "\(cartItem.quantity)"
+                updateQuantityCallback()
+            }
+        }
+        
         title.text = cartItem.product?.name
         subtitle.text = "₹ \(cartItem.product?.price ?? 0.0)"
         productQuantity.text = "\(cartItem.quantity)"
+        
         if let iconURL = URL(string: cartItem.product?.icon ?? "") {
             SDWebImageDownloader.shared.downloadImage(with: iconURL, options: [], progress: nil) { [weak self] (image, _, error, _) in
                 if let error = error {
@@ -60,7 +69,6 @@ class CartCell: UITableViewCell {
                 self?.img.image = image
             }
         }
-        
     }
     
     @objc private func plusButtonTapped() {
@@ -79,8 +87,8 @@ class CartCell: UITableViewCell {
             productQuantity.text = "\(cartItem.quantity)"
             updateQuantityCallback?()
         } else {
-            cartItem.quantity -= 1
             CoreDataHelper.shared.removeFromCart(cartItem: cartItem)
+            cartItem.quantity = 0 
             updateQuantityCallback?()
         }
     }

@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2245EDD22C5115D2001A52E4 /* Ecommerce.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2245EDD02C5115D2001A52E4 /* Ecommerce.xcdatamodeld */; };
 		22523AC12C4EB525005FA7F5 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22523ABF2C4EB525005FA7F5 /* CollectionCell.swift */; };
 		22523AC22C4EB525005FA7F5 /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22523AC02C4EB525005FA7F5 /* CollectionCell.xib */; };
 		22676DB42C4ECB2600D6D82B /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22676DB32C4ECB2600D6D82B /* DataLoader.swift */; };
 		22676DB62C4ECC4000D6D82B /* shopping.json in Resources */ = {isa = PBXBuildFile; fileRef = 22676DB52C4ECC4000D6D82B /* shopping.json */; };
-		22676DBC2C4EDC9500D6D82B /* Ecommerce.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22676DBA2C4EDC9500D6D82B /* Ecommerce.xcdatamodeld */; };
 		22676DC72C4EDDA800D6D82B /* FavoriteItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22676DBF2C4EDDA800D6D82B /* FavoriteItem+CoreDataClass.swift */; };
 		22676DC82C4EDDA800D6D82B /* FavoriteItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22676DC02C4EDDA800D6D82B /* FavoriteItem+CoreDataProperties.swift */; };
 		22676DCE2C4F6ACF00D6D82B /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22676DCD2C4F6ACF00D6D82B /* SplashVC.swift */; };
@@ -56,11 +56,11 @@
 
 /* Begin PBXFileReference section */
 		05C9E2374231673B743C59BF /* Pods-Ecommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ecommerce.release.xcconfig"; path = "Target Support Files/Pods-Ecommerce/Pods-Ecommerce.release.xcconfig"; sourceTree = "<group>"; };
+		2245EDD12C5115D2001A52E4 /* Ecommerce.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ecommerce.xcdatamodel; sourceTree = "<group>"; };
 		22523ABF2C4EB525005FA7F5 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		22523AC02C4EB525005FA7F5 /* CollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionCell.xib; sourceTree = "<group>"; };
 		22676DB32C4ECB2600D6D82B /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		22676DB52C4ECC4000D6D82B /* shopping.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = shopping.json; sourceTree = "<group>"; };
-		22676DBB2C4EDC9500D6D82B /* Ecommerce.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ecommerce.xcdatamodel; sourceTree = "<group>"; };
 		22676DBF2C4EDDA800D6D82B /* FavoriteItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		22676DC02C4EDDA800D6D82B /* FavoriteItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		22676DCD2C4F6ACF00D6D82B /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
@@ -250,8 +250,8 @@
 		226F00BA2C4EA0A800E36CD4 = {
 			isa = PBXGroup;
 			children = (
+				2245EDD02C5115D2001A52E4 /* Ecommerce.xcdatamodeld */,
 				22676E032C50365300D6D82B /* README.md */,
-				22676DBA2C4EDC9500D6D82B /* Ecommerce.xcdatamodeld */,
 				226F00C52C4EA0A800E36CD4 /* Ecommerce */,
 				226F00C42C4EA0A800E36CD4 /* Products */,
 				5B5BF10A8700A525BF8A7212 /* Pods */,
@@ -511,7 +511,6 @@
 				22676DED2C4FB43A00D6D82B /* CartCell.swift in Sources */,
 				22676DFD2C5020E800D6D82B /* UIWindow+Extension.swift in Sources */,
 				22676DE72C4FB37200D6D82B /* CartItem+CoreDataProperties.swift in Sources */,
-				22676DBC2C4EDC9500D6D82B /* Ecommerce.xcdatamodeld in Sources */,
 				226F00E72C4EA52900E36CD4 /* LoginVM.swift in Sources */,
 				22C785612C4EBE4300A76816 /* CoreDataManager.swift in Sources */,
 				226F00C92C4EA0A800E36CD4 /* SceneDelegate.swift in Sources */,
@@ -526,6 +525,7 @@
 				22676DD42C4F7B6500D6D82B /* CategoryEntity+CoreDataProperties.swift in Sources */,
 				22676DC82C4EDDA800D6D82B /* FavoriteItem+CoreDataProperties.swift in Sources */,
 				22676DDB2C4F8AED00D6D82B /* FavouriteVC.swift in Sources */,
+				2245EDD22C5115D2001A52E4 /* Ecommerce.xcdatamodeld in Sources */,
 				22676DE22C4FA4D100D6D82B /* FavouriteItemCell.swift in Sources */,
 				22C7855F2C4EBD4300A76816 /* CoreDataHelper.swift in Sources */,
 				22676DCE2C4F6ACF00D6D82B /* SplashVC.swift in Sources */,
@@ -751,12 +751,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		22676DBA2C4EDC9500D6D82B /* Ecommerce.xcdatamodeld */ = {
+		2245EDD02C5115D2001A52E4 /* Ecommerce.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				22676DBB2C4EDC9500D6D82B /* Ecommerce.xcdatamodel */,
+				2245EDD12C5115D2001A52E4 /* Ecommerce.xcdatamodel */,
 			);
-			currentVersion = 22676DBB2C4EDC9500D6D82B /* Ecommerce.xcdatamodel */;
+			currentVersion = 2245EDD12C5115D2001A52E4 /* Ecommerce.xcdatamodel */;
 			name = Ecommerce.xcdatamodeld;
 			path = /Users/anugrah/Desktop/Anugrah/Ecommerce/Ecommerce.xcdatamodeld;
 			sourceTree = "<group>";
